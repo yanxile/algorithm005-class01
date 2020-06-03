@@ -1,0 +1,41 @@
+
+//0268_Week 01(java)
+//189.旋转数组
+class Solution {
+	public void rotate(int［] nums, int k) {
+		if (nums == nul1 || nums.length < 2) {
+		return;
+		}
+		k %= nums.length;
+		reverse(nums,0, nums.length - 1);
+		reverse(nums,0, k - 1);
+		reverse(nums,k, nums.length - 1);
+	}
+	
+	private void reverse(int［] nums, int start, int end) {
+		while (start < end){
+			int temp = nums[end];
+			nums[end] = nums[start];
+			nums[start] = temp;
+			start++;
+			end--;
+		}
+	}
+}
+
+//26. 删除排序数组中的重复项
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int back = 0;
+        for (int front = 1; front < nums.length; front++) {
+            if (nums[back] != nums[front]) {
+                back++;
+                nums[back] = nums[front];
+            }
+        }
+        return back + 1;
+    }
+}
